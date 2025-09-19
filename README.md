@@ -1,82 +1,125 @@
-# Zeka Kulesi — Math Tower Combat
+# Zeka Kulesi
 
-A fast-paced arithmetic roguelite built with Flutter. Solve procedurally generated math challenges to power up your hero, burst down enemies, and climb an endless tower that adapts to your performance.
+A Flutter-based arithmetic roguelite where players climb a procedurally scaling tower by answering rapid-fire math challenges. Correct streaks trigger combo-driven combat bonuses, while mistakes accelerate enemy attacks and jeopardise survival. The project targets mobile form factors first, with responsive layouts for tablets and the web.
 
-## Highlights
-- **Three difficulty modes** that tune time pressure, progression pacing, and combo multipliers through a central `GameConfig`.
-- **Combo-driven combat loop**: correct streaks boost damage exponentially, while mistakes slash the timer and break your rhythm.
-- **Dynamic enemy roster** populated from CSV assets with boss rotation, floor scaling, and fallback logic for resilient loading.
-- **Immersive presentation** featuring animated math glyph backgrounds, synchronized UI shuffles, popup feedback, and tactile haptics on critical events.
-- **Modular architecture** that separates configuration, state management, themed widgets, and documentation for easy extension.
+## Feature Overview
+- **Adaptive difficulty system** driven by `GameConfig` and `DifficultyController`, unlocking new operations and number ranges as floors are cleared.
+- **Combo-centric combat loop** with exponential damage scaling, milestone-based combo retention, and time penalties on mistakes.
+- **Data-driven enemy roster** sourced from `assets/enemies.csv`, supporting tiered difficulty, unique bosses, and resilient fallbacks when data is incomplete.
+- **Rich feedback layer** combining haptics, animated widgets (`DamageNumberManager`, `ComboPopupManager`, `DifficultyPopupManager`), and themed UI to convey state changes.
+- **Lean state management** through a single `GameState` `ChangeNotifier`, keeping logic predictable and testable without external state libraries.
 
-## Getting Started
-### Prerequisites
-- Flutter SDK 3.9.0 or newer (`sdk: ^3.9.0` in `pubspec.yaml`).
-- A connected device or emulator (Android, iOS, or web) configured per Flutter documentation.
+## Architecture
+```
+lib/
+├─ main.dart                 # Entry point binding theme + initial route
+├─ theme.dart                # Color, typography, spacing tokens
+├─ game_config.dart          # Static knobs for balance & difficulty presets
+├─ game_state.dart           # Central gameplay state machine & timers
+├─ difficulty.dart           # Progressive operation unlock logic
+├─ enemy_data.dart           # Enemy models + CSV loading utilities
+├─ screens/
+│  ├─ main_menu.dart         # Animated landing screen with difficulty tiles
+│  └─ game_screen.dart       # Core gameplay, orchestrating managers & widgets
+└─ widgets/                  # Reusable UI components (combo counter, HP bars, popups, death screen)
 
-### Installation
+assets/
+└─ enemies.csv               # Enemy catalogue consumed by EnemyManager
+```
+
+Key design principles:
+- **Configuration-first:** all tunables (damage, timers, floor pacing) live in `game_config.dart` to simplify balancing.
+- **Documented flow:** `GameState` owns timers and combo transitions, while UI widgets stay presentational and subscribe via listeners.
+- **Asset resilience:** enemy loading is tolerant of malformed CSV rows, ensuring the game still boots with defaults.
+- **Animation encapsulation:** each widget manages its own controllers to avoid cross-component coupling.
+
+## Environment Setup
+- Flutter SDK: `>= 3.9.0`
+- Dart SDK: installed via Flutter toolchain
+- Recommended tooling: Android Studio or VS Code with Flutter extension
+
 ```bash
+# verify toolchain
+dart --version
+flutter --version
+
+# fetch dependencies
 flutter pub get
 ```
 
-### Launching the Game
+## Running & Debugging
 ```bash
+# run on connected device/emulator
 flutter run
+
+# specify platform explicitly
+flutter run -d chrome      # web
+flutter run -d emulator-5554  # android emulator example
 ```
-Select your preferred device when prompted. The app boots into the animated main menu where you can choose a difficulty and start climbing.
+Enable performance overlays via Flutter DevTools when tuning animations. `GameState` emits granular events, so attach a debugger or log listeners for deeper inspection.
 
-### Tooling & Quality Checks
-| Task | Command |
-| ---- | ------- |
-| Static analysis | `flutter analyze` |
-| Formatting | `dart format .` |
-| Tests | `flutter test` |
-| Coverage (optional) | `flutter test --coverage` |
+## Quality Gates
+| Task | Command | Notes |
+| ---- | ------- | ----- |
+| Static analysis | `flutter analyze` | Enforces `flutter_lints` from `analysis_options.yaml` |
+| Formatting | `dart format .` | Run before committing to maintain 2-space indentation |
+| Tests | `flutter test` | Add widget/unit coverage for gameplay logic |
+| Coverage (optional) | `flutter test --coverage` | Generates `coverage/lcov.info` |
 
-## Gameplay & Systems
-- **Difficulty selection**: `MainMenuScreen` applies presets (attack timers, staging cadence, combo scaling) through `GameConfig.applyDifficulty`.
-- **Combat engine**: `GameState` orchestrates timers, combo milestones, HP tracking, and floor transitions while notifying the UI.
-- **Enemy pipeline**: `EnemyManager` reads `assets/enemies.csv`, filters candidates by floor level/boss flag, and falls back to the full roster if a tier is missing.
-- **Feedback layer**: custom widgets (`DamageNumberManager`, `ComboPopupManager`, `DifficultyPopupManager`, etc.) drive HP bar animations, popups, and haptics.
+## Configuration Matrix
+`lib/game_config.dart` centralises all balance levers:
+- `baseAttackTime`, `wrongAnswerPenalty` – pacing for enemy strikes.
+- `comboLinear`, `comboPower`, `comboPowerCoef` – governs damage multiplier growth.
+- `difficultyBossesPerStage`, `difficultyNegativeSubtractionStage` – stage progression cadence.
+- Operation caps (`capsAdd`, `capsSub`, `capsMul`, `capsDiv`) and weights to shape generated equations.
 
-## Project Structure
+Difficulty presets map to these values via `GameConfig.applyDifficulty`, updating timers, stage behaviour, and combo multipliers when the player selects Easy/Normal/Hard.
+
+## Enemy Data Contract
+`assets/enemies.csv` columns:
+1. `id`
+2. `name`
+3. `emoji`
+4. `baseHP`
+5. `baseDamageMultiplier`
+6. `difficultyLevel`
+7. `type` (`normal` | `boss`)
+8. `specialAbilityId`
+9. `specialAbilityDescription`
+
+`EnemyManager` filters by floor level and boss flag. Missing tiers fall back to the full list, so ensure each level has at least one normal enemy and a boss for best pacing.
+
+## Build & Release Targets
+```bash
+# Android release APK
+flutter build apk --release
+
+# iOS (requires macOS tooling)
+flutter build ios --release
+
+# Web (for quick demos)
+flutter build web
 ```
-lib/
-├─ main.dart                # Entry point wiring theme + routes
-├─ theme.dart               # Central colors, typography, and spacing tokens
-├─ game_config.dart         # Difficulty + balance knobs exposed as static values
-├─ game_state.dart          # Core state machine backing GameScreen
-├─ difficulty.dart          # Progressive operation unlock logic
-├─ enemy_data.dart          # Enemy models + CSV loader utilities
-├─ screens/
-│  ├─ main_menu.dart        # Animated landing screen and difficulty tiles
-│  └─ game_screen.dart      # Full gameplay experience with managers + widgets
-└─ widgets/                 # Reusable UI components (combo counter, HP bars, popups, etc.)
+Package-specific configuration (icons, bundle IDs, signing) resides under `android/` and `ios/`. Update those platforms before distributing.
 
-assets/
-└─ enemies.csv              # Enemy roster definitions with metadata
+## Maintenance Checklist
+- Keep `pubspec.yaml` dependency versions current (`flutter pub outdated`).
+- Audit `assets/enemies.csv` for balance tweaks and emoji/ability consistency.
+- Monitor animation performance on lower-end hardware; adjust controller durations or particle counts if necessary.
+- Extend test coverage as new gameplay systems are added.
 
-docs/
-├─ README.md                # Documentation index
-└─ architecture/
-   └─ enemy_system.md       # Enemy spawning and scaling reference
-```
+## Troubleshooting
+| Symptom | Resolution |
+| ------- | ---------- |
+| Flutter commands request engine updates | Run with `--no-version-check` or update Flutter; ensure write permissions to `flutter/bin/cache`. |
+| CSV parsing exceptions | Validate delimiter and column count; ensure there’s no trailing comma on lines. |
+| Animations feel choppy | Profile with `flutter run --profile`; inspect widget rebuild counts and animation controllers. |
+| Combo multiplier feels unbalanced | Tweak `comboLinear`/`comboPowerCoef` and re-run tests for damage expectations. |
 
-## Configuration & Tuning
-Adjust balance quickly via `lib/game_config.dart`. Key levers include:
-- Damage scaling factors (`comboLinear`, `comboPower`, `comboPowerCoef`).
-- Enemy pacing (`baseAttackTime`, `wrongAnswerPenalty`).
-- Floor progression (`enemiesPerFloor`, `difficultyBossesPerStage`).
-- Operation caps and weights that govern generated math problems.
+## Roadmap Ideas
+- Progress persistence across sessions (save floor + stats).
+- Additional enemy abilities with active player counters.
+- Daily challenges with constrained operation sets.
+- Multiplayer leaderboards sharing max combo / floor reached.
 
-To modify enemy data, edit `assets/enemies.csv` and ensure values remain comma-separated with the expected columns. Re-run `flutter pub get` if you add new asset files.
-
-## Documentation
-Extended guides live under [`docs/`](docs/README.md). Start with the enemy system deep dive for implementation notes on tiered spawns and bosses.
-
-## Contributing & Maintenance
-1. Follow the lint and formatting commands above.
-2. Add or update widget/unit tests under `test/` when introducing gameplay or logic changes.
-3. Update this README and the relevant files under `docs/` when you expand major systems.
-
-Enjoy the climb, and feel free to iterate on the tower’s challenges to craft your own math-driven adventure.
+Feel free to fork, experiment with new mechanics, and open pull requests via the provided templates. Happy hacking!
