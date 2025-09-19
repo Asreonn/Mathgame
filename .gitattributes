@@ -1,0 +1,9 @@
+* text=auto eol=lf
+
+# Treat Dart/Flutter generated artifacts as binary just in case
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.svg text
+*.csv text

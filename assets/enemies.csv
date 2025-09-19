@@ -1,0 +1,141 @@
+enemy_id,enemy_name,enemy_emoji,base_hp,base_damage_multiplier,difficulty_level,enemy_type,special_ability_id,special_ability_description
+1,Çaylak Goblin,👺,120,0.8,1,normal,,
+2,Mağara Yarasası,🦇,125,0.85,1,normal,,
+3,Orman Kurdu,🐺,130,0.9,1,normal,,
+4,Küçük Akrep,🦂,120,0.95,1,normal,,
+5,Balçık,🦠,150,0.8,1,normal,,
+6,İskelet Savaşçı,💀,140,0.9,1,normal,,
+7,Dev Fare,🐀,120,0.8,1,normal,,
+8,Zehirli Örümcek,🕷️,135,1.0,1,normal,,
+9,Yaban Domuzu,🐗,160,0.9,1,normal,,
+10,Hortlak,👻,145,0.85,1,normal,,
+11,Savaş Ork'u,🧌,130,1.0,2,normal,,
+12,Alevli İmp,🔥,140,1.1,2,normal,,
+13,Gargoyle,🗿,170,1.2,2,normal,,
+14,Çöl Yılanı,🐍,130,1.25,2,normal,,
+15,Harpya,🦅,140,1.15,2,normal,,
+16,Büyülü Zırh,🛡️,180,1.0,2,normal,,
+17,Vahşi Griffon,🦁,150,1.2,2,normal,,
+18,Karanlık Büyücü,🧙,130,1.3,2,normal,,
+19,Savaş Golemi,🤖,175,1.1,2,normal,,
+20,Yeraltı Canavarı,🦑,160,1.2,2,normal,,
+21,Labirent Minotoru,♉,140,1.3,3,normal,,
+22,Demir Golem,🦾,180,1.4,3,normal,,
+23,Lav Canavarı,🌋,160,1.5,3,normal,,
+24,Fırtına Elementali,🌪️,150,1.6,3,normal,,
+25,Kadim Ent,🌳,170,1.3,3,normal,,
+26,Buz Devi,🥶,165,1.45,3,normal,,
+27,Ejderha Yavrusu,🐲,155,1.55,3,normal,,
+28,Gölge Suikastçısı,👤,140,1.6,3,normal,,
+29,Cehennem Tazısı,🐕,150,1.5,3,normal,,
+30,Hayalet Şövalye,⚔️,160,1.4,3,normal,,
+31,Trol Reisi,👹,350,1.5,3,boss,hp_regen,Canı yavaş yavaş yenilenir
+32,Kristal Titan,💎,400,1.6,3,boss,crystal_armor,Canı %50'nin altına düştüğünde zırhı artar
+33,Bataklık Canavarı,🐊,380,1.4,3,boss,swamp_gas,Oyuncuyu yavaşlatan bir zehir bulutu bırakır
+34,Kum Golemi Reisi,🏜️,420,1.3,3,boss,sandstorm,Saldırıları oyuncunun isabet oranını düşürür
+35,Obsidiyen Golem,⚫,150,1.6,4,normal,,
+36,Yıldırım Wyvern'i,⚡,160,1.7,4,normal,,
+37,Rünik Golem,🗿,180,1.8,4,normal,,
+38,Zehir Kraliçesi,🐍,140,2.0,4,normal,,
+39,Cehennem Süvarisi,🏇,160,1.9,4,normal,,
+40,Kabus,🐎,150,1.85,4,normal,,
+41,Banshee,👻,170,1.75,4,normal,,
+42,Mekanik Muhafız,🤖,180,1.6,4,normal,,
+43,Karanlık Şövalye,♞,160,1.95,4,normal,,
+44,Ayna Görüntüsü,🔮,120,2.0,4,normal,damage_reflect,Aldığı hasarın bir kısmını yansıtır
+45,Karanlık Efendi,👹,500,2.0,4,boss,dark_magic,Her saldırısında oyuncunun combo'sunu sıfırlar
+46,Buz Kraliçesi,👸,550,2.2,4,boss,frost_nova,Saldırdığında oyuncuyu 1 tur dondurma şansı vardır
+47,Mekanik Gözcü,👁️,480,1.8,4,boss,laser_beam,Odaklanarak güçlü bir lazer ışını ateşler
+48,Gölge Lordu,👑,450,1.9,4,boss,shadow_clone,Savaşa kendi gölge kopyalarıyla başlar
+49,Magma Ejderi,🐉,160,2.1,5,normal,,
+50,Fırtına Devi,⛈️,170,2.2,5,normal,,
+51,Ruh Yiyen,💀,150,2.4,5,normal,combo_drain,Saldırdığında oyuncunun combo'sunu azaltır
+52,Elmas Golem,💎,180,2.0,5,normal,,
+53,Işık Elementali,✨,140,2.5,5,normal,,
+54,Zaman Bükücü,⏳,150,2.3,5,normal,,
+55,Melek Savaşçı,😇,160,2.2,5,normal,,
+56,Paladin,🛡️,175,2.1,5,normal,,
+57,Hiddetli Barbar,🪓,165,2.3,5,normal,,
+58,Usta Suikastçı,👤,145,2.5,5,normal,,
+59,Ejder Kralı,🐉,700,2.5,5,boss,dragon_fury,Canı %50'nin altına düştüğünde saldırı hızı ikiye katlanır
+60,Cehennem Lordu,😈,750,2.4,5,boss,hellfire,Oyuncuyu yakan bir alev topu atar,zamanla hasar verir
+61,Kadim Ent Reisi,🌳,800,2.2,5,boss,hp_regen,Canı yavaş yavaş yenilenir
+62,Fırtına Kralı,⛈️,650,2.3,5,boss,chain_lightning,Birden fazla hedefe seken yıldırım saldırısı yapar
+63,Kozmik Golem,🌌,160,2.6,6,normal,,
+64,Cehennem Ateşi İmp'i,🔥,140,3.0,6,normal,,
+65,Gölge Canavarı,🐾,150,2.8,6,normal,,
+66,Kaos Elementali,🌀,170,2.7,6,normal,,
+67,Yıldız Büyücüsü,🧙,130,3.1,6,normal,,
+68,Demir Ejder,🐉,180,2.5,6,normal,,
+69,Hayalet Gladyatör,⚔️,160,2.9,6,normal,,
+70,Kum Fırtınası,🏜️,150,2.8,6,normal,,
+71,Asit Balçığı,🦠,170,2.6,6,normal,,
+72,Rünik Muhafız,🛡️,180,2.5,6,normal,,
+73,Volkanik Titan,🌋,900,3.0,6,boss,eruption,Canı %25'in altına düştüğünde alana büyük hasar verir
+74,Derinliklerin Canavarı,🐙,1000,2.8,6,boss,tidal_wave,Tüm ekranı kaplayan bir dalga gönderir
+75,Mekatron,🤖,850,2.6,6,boss,giga_laser,Tüm satırları ve sütunları hedef alan lazerler ateşler
+76,Hilebaz Tanrı:Loki,🎭,800,3.1,6,boss,reality_warp,Oyuncunun kontrollerini geçici olarak tersine çevirir
+77,Cennetin Gazabı,😇,150,3.2,7,normal,,
+78,Cehennemin Şampiyonu,😈,160,3.5,7,normal,,
+79,Zaman Gözcüsü,⏳,140,3.8,7,normal,stun_chance,Saldırdığında sersemletme şansı vardır
+80,Gerçeklik Bükücü,🌀,170,3.6,7,normal,,
+81,Kara Delik,⚫,180,3.4,7,normal,combo_drain,Saldırdığında oyuncunun combo'sunu sıfırlar
+82,Nova Büyücüsü,🌟,130,3.8,7,normal,,
+83,Kristal Ejder,💎,170,3.5,7,normal,,
+84,Ruh Hırsızı,💀,150,3.7,7,normal,,
+85,Işık Muhafızı,✨,160,3.4,7,normal,,
+86,Gölge Egemeni,👑,140,3.8,7,normal,,
+87,Kozmik Varlık,🌌,1200,3.8,7,boss,reality_warp,Oyuncunun kontrollerini geçici olarak tersine çevirir
+88,Zaman Lordu,⏳,1100,3.5,7,boss,time_stop,Oyuncuyu geçici olarak dondurur ve birden çok kez saldırır
+89,Kaosun Habercisi,🌀,1300,3.2,7,boss,chaos_bolt,Rastgele olumsuz etkilere neden olan bir büyü atar
+90,Yıldızlararası Gezgin,☄️,1150,3.6,7,boss,meteor_shower,Ekrana meteorlar yağdırır
+91,Galaktik Golem,🌌,160,4.0,8,normal,,
+92,Hipernova İmp'i,💥,140,4.5,8,normal,,
+93,Boyut Gezgini,🌀,150,4.2,8,normal,evasion,Saldırılardan kaçma şansı vardır
+94,Kara Yıldız Şövalyesi,♞,170,4.4,8,normal,,
+95,Evrenin Büyücüsü,🧙,130,4.6,8,normal,,
+96,Nebula Ejderi,🌌,180,4.0,8,normal,,
+97,Foton Savaşçısı,✨,150,4.3,8,normal,,
+98,Antimadde Balçığı,⚫,170,4.1,8,normal,,
+99,Tekillik Canavarı,⚫,160,4.5,8,normal,,
+100,Gezegen Yiyen,🌍,180,4.0,8,normal,,
+101,Dünya Yiyen,🌍,1500,4.5,8,boss,devour,Oyuncunun maksimum canını kalıcı olarak azaltır
+102,Galaktik İmparator,👑,1400,4.2,8,boss,summon_fleet,Savaşa yardımcı olması için küçük gemiler çağırır
+103,Kara Delik Lejyonu,⚫,1600,4.0,8,boss,gravity_well,Oyuncuyu ekranın ortasına çeker
+104,Hiperdev,💥,1450,4.6,8,boss,supernova,Ölürken patlayarak büyük hasar verir
+105,Tanrı Katili,🔪,150,5.0,9,normal,,
+106,Evrenin Kalbi,❤️,180,4.6,9,normal,hp_regen,Çok hızlı can yeniler
+107,Alfa Yaratık,🧬,160,5.2,9,normal,,
+108,Omega Muhafız,Ω,170,5.4,9,normal,,
+109,Yaratılış Golemi,🛠️,180,5.0,9,normal,,
+110,Yok Oluş Büyücüsü,💀,130,5.5,9,normal,,
+111,Akaşik Kayıtçı,📜,140,5.3,9,normal,,
+112,Kader Dokuyucu,🕸️,150,5.2,9,normal,,
+113,Paradoks Canavarı,❓,160,5.1,9,normal,,
+114,Gerçekliğin Sonu,🔚,170,5.5,9,normal,,
+115,Ouroboros,🐍,1800,5.5,9,boss,rebirth,Öldüğünde daha zayıf bir formda yeniden doğar
+116,Schrödinger'in Muhafızı,🐈,1700,5.0,9,boss,quantum_state,Hem canlı hem ölüdür,hasar alması zordur
+117,Paradoks Lordu,❓,1900,5.2,9,boss,causality_break,Oyuncunun geçmiş eylemlerini geçersiz kılabilir
+118,Yaratıcı,🎨,1600,4.8,9,boss,creation,Yeni düşmanlar yaratır
+119,Nihai Golem,🗿,160,6.0,10,normal,,
+120,Azathoth'un Habercisi,🐙,150,6.5,10,normal,,
+121,Yog-Sothoth'un Yankısı,🌀,170,6.2,10,normal,,
+122,Cthulhu'nun Dölü,🦑,180,6.4,10,normal,,
+123,Kozmik Korku,😱,140,6.5,10,normal,,
+124,Deliliğin Rengi,🌈,150,6.3,10,normal,,
+125,Kör Aptal Tanrı,🤪,180,6.0,10,normal,,
+126,Zamanın Ötesindeki Varlık,⏳,170,6.1,10,normal,,
+127,Sarı Kral,👑,160,6.4,10,normal,,
+128,Nyarlathotep'in Avatarı,🎭,150,6.5,10,normal,,
+129,Azathoth,केन्द्र,2500,7.0,10,boss,madness,Oyuncunun ekranını bozan görsel efektler yaratır
+130,Yog-Sothoth,🔑,2200,6.5,10,boss,all_in_one,Tüm önceki boss yeteneklerini rastgele kullanır
+131,Cthulhu,🐙,3000,6.8,10,boss,death_dream,Oyuncuyu yavaş yavaş delirten ve hasar veren bir rüyaya sokar
+132,Nyarlathotep,🎭,2000,7.5,10,boss,crawling_chaos,Sürekli form ve yetenek değiştirir
+133,Kaderin Efendisi,⛓️,2000,8.0,11,boss,fate_seal,Oyuncunun özel yeteneklerini geçici olarak kilitler
+134,Evrenin Yargıcı,⚖️,2200,7.8,11,boss,judgement,Oyuncunun combo sayısına göre hasar verir (düşükse çok,yüksekse az)
+135,Sonsuzluk Golemi,♾️,2500,7.5,11,boss,infinite_regen,Yenilmedikçe canını tamamen yeniler
+136,Hiçlik Lordu,⚫,2100,8.2,11,boss,void_prison,Oyuncuyu geçici olarak savaştan çıkaran bir tuzağa hapseder
+137,Mutlak Varlık,🌟,3500,9.0,12,boss,absolute_power,Tüm hasarlara karşı bir süre bağışıklık kazanabilir
+138,Yaratılışın Sonu,🔚,4000,9.5,12,boss,uncreation,Ekrandaki sayıları ve seçenekleri yavaş yavaş siler
+139,Oyun Geliştiricisi,💻,5000,8.5,12,boss,debug_mode,Kendi canını doldurur,oyuncunun hasarını azaltır
+140,Gemini,♊,4500,8.8,12,boss,dual_strike,Aynı anda iki farklı saldırı yapar
